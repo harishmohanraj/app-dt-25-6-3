@@ -1,0 +1,22 @@
+# fly.toml app configuration file generated for app-dt-25-6-3-1719319843-server on 2024-06-25T12:51:21Z
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'app-dt-25-6-3-1719319843-server'
+primary_region = 'mia'
+
+[build]
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = false
+  auto_start_machines = false
+  min_machines_running = 1
+  processes = ['app']
+
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 4

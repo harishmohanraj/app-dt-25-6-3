@@ -84,7 +84,8 @@ jobs:
           REACT_APP_NAME=$REACT_APP_NAME REACT_APP_SUPPORT_EMAIL=$REACT_APP_SUPPORT_EMAIL wasp deploy fly cmd secrets set \
           FASTAGENCY_DEPLOYMENT_UUID=$FASTAGENCY_DEPLOYMENT_UUID FASTAGENCY_SERVER_URL=$FASTAGENCY_SERVER_URL --context=server
           echo "--- Setting the machine count to 1 ---"
-          flyctl scale count 1 --app $APP_NAME
+          flyctl scale count 1 --app ${APP_NAME}-client
+          flyctl scale count 1 --app ${APP_NAME}-server
         working-directory: app
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
